@@ -1,0 +1,41 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal text-primary">Logowanie</h1>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Adres email</label>
+      <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{
+                  'is-invalid': loginForm.get('email')?.invalid &&
+                  loginForm.get('email')?.touched
+              }"
+              id="email"
+              placeholder="Podaj adres email"
+      >
+    </div>
+    <div class="form-group">
+      <label for="password">Hasło</label>
+      <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{
+                  'is-invalid': loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.touched
+              }"
+              id="password"
+              placeholder="Hasło"
+      >
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Zaloguj</button>
+  </form>
+</div>

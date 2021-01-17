@@ -1,0 +1,46 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal text-primary">Dodaj nowe słówko</h1>
+        <p class="lead font-weight-normal">
+            Dodaj nowe słówko wraz z jego tłumaczeniem, żeby się go w końcu nauczyć!
+        </p>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<div class="container">
+    <form [formGroup]="newWordForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="wordValue">Słówko</label>
+            <input
+                    type="text"
+                    formControlName="value"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': newWordForm.get('value')?.invalid &&
+                        newWordForm.get('value')?.touched
+                    }"
+                    id="wordValue"
+                    placeholder="Słówko"
+            >
+            <small class="form-text text-muted">Pamiętaj, że słówko jest w języku angielskim</small>
+        </div>
+        <div class="form-group">
+            <label for="wordTranslation">Tłumaczenie</label>
+            <input
+                    type="text"
+                    formControlName="translation"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': newWordForm.get('translation')?.invalid &&
+                        newWordForm.get('translation')?.touched
+                    }"
+                    id="wordTranslation"
+                    placeholder="Tłumaczenie"
+            >
+            <small class="form-text text-muted">Pamiętaj, że tłumaczenie jest w języku ojczystym</small>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!newWordForm.valid">Dodaj słówko</button>
+    </form>
+</div>
