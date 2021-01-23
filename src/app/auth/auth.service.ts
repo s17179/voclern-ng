@@ -39,8 +39,17 @@ export class AuthService {
   }
 
   logout(): void {
+    this.clearStateOnLogout();
+    this.router.navigate(['/']);
+  }
+
+  handleUnauthorized(): void {
+    this.clearStateOnLogout();
+    this.router.navigate(['/login']);
+  }
+
+  private clearStateOnLogout(): void {
     this.token.next(undefined);
     localStorage.removeItem('token');
-    this.router.navigate(['/']);
   }
 }

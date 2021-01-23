@@ -4,13 +4,13 @@
     <div class="col-8">
       <h5>Menu</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="/">Strona Główna</a></li>
-        <li><a class="text-muted" href="/word-list">Lista słówek</a></li>
-        <li><a class="text-muted" href="/new-word">Dodaj nowe słówko</a></li>
-        <li><a class="text-muted" href="/contact">Kontakt</a></li>
-        <li><a class="text-muted" href="/login">Logowanie</a></li>
-        <li><a class="text-muted" href="/register">Rejestracja</a></li>
-        <li><a class="text-muted" href="/logout">Wyloguj</a></li>
+        <li><a class="text-muted" routerLink="/">Strona Główna</a></li>
+        <li><a class="text-muted" routerLink="/word-list" *ngIf="isAuthenticated">Lista słówek</a></li>
+        <li><a class="text-muted" routerLink="/new-word" *ngIf="isAuthenticated">Dodaj nowe słówko</a></li>
+        <li><a class="text-muted" routerLink="/contact">Kontakt</a></li>
+        <li><a class="text-muted" routerLink="/login" *ngIf="!isAuthenticated">Logowanie</a></li>
+        <li><a class="text-muted" routerLink="/register" *ngIf="!isAuthenticated">Rejestracja</a></li>
+        <li><a class="text-muted" (click)="onLogout()" style="cursor: pointer;" *ngIf="isAuthenticated">Wyloguj</a></li>
       </ul>
     </div>
     <div class="col-4">

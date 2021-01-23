@@ -25,7 +25,7 @@
                 <td>{{ i + 1 }}</td>
                 <td>{{ word.value }}</td>
                 <td>{{ word.translation }}</td>
-                <td><a class="btn btn-outline-primary">Edytuj</a></td>
+                <td><a class="btn btn-outline-primary" routerLink="/word/{{ word.id }}">Edytuj</a></td>
                 <td><a class="btn btn-outline-danger" (click)="onRemoveWord(word.id)">Usuń</a></td>
             </tr>
             </tbody>

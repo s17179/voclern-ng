@@ -34,7 +34,7 @@
           <a class="nav-link" routerLink="/register" routerLinkActive="active">Rejestracja</a>
         </li>
         <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link" (click)="onLogout()">Wyloguj</a>
+          <a class="nav-link" (click)="onLogout()" style="cursor: pointer;">Wyloguj</a>
         </li>
       </ul>
     </div>

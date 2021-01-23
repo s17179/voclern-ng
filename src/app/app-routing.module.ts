@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'word-list', component: WordListComponent, canActivate: [AuthGuard] },
-  { path: 'new-word', component: NewWordComponent, canActivate: [AuthGuard] }
+  { path: 'new-word', component: NewWordComponent, canActivate: [AuthGuard] },
+  { path: 'word/:id', component: NewWordComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

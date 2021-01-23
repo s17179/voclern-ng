@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NewWordComponent } from './new-word/new-word.component';
 import { WordListComponent } from './word-list/word-list.component';
 import {RouteReuseStrategy} from '@angular/router';
+import {HttpErrorInterceptor} from './http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,11 @@ import {RouteReuseStrategy} from '@angular/router';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
       multi: true
     }
   ],
